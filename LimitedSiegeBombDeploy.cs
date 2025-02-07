@@ -143,6 +143,15 @@ namespace Oxide.Plugins
         {
             List<DeployableSiegeExplosive> siegeBombs = Pool.Get<List<DeployableSiegeExplosive>>();
             Vis.Entities(position, radius, siegeBombs, LAYER_SIEGE_BOMBS, QueryTriggerInteraction.Ignore);
+
+            for (int i = siegeBombs.Count - 1; i >= 0; i--)
+            {
+                DeployableSiegeExplosive bomb = siegeBombs[i];
+                if (bomb == null || !bomb.CanSee(position, bomb.ExplosionSpawnPoint.position))
+                {
+                    siegeBombs.RemoveAt(i);
+                }
+            }
             return siegeBombs;
         }
 
