@@ -126,7 +126,7 @@ namespace Oxide.Plugins
             List<DeployableSiegeExplosive> nearbyBombs = GetNearbySiegeBombs(target.position, _config.SiegeBombCheckRadius);
             if (nearbyBombs.Count >= _config.MaximumNearbySiegeBombs)
             {
-                MessagePlayer(player, Lang.BombDeployRestricted);
+                ShowToast(player, Lang.BombDeployRestricted, GameTip.Styles.Red_Normal);
                 Pool.FreeUnmanaged(ref nearbyBombs);
                 return true;
             }
@@ -194,7 +194,7 @@ namespace Oxide.Plugins
         {
             lang.RegisterMessages(new Dictionary<string, string>
             {
-                [Lang.BombDeployRestricted] = "Too many siege bombs deployed nearby. Please move to a different location.",
+                [Lang.BombDeployRestricted] = "Too many siege bombs deployed nearby.",
 
             }, this, "en");
         }
