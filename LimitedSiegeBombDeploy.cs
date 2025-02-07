@@ -13,7 +13,7 @@ using UnityEngine;
 namespace Oxide.Plugins
 {
     [Info("Limited Siege Bomb Deploy", "VisEntities", "1.0.0")]
-    [Description(" ")]
+    [Description("Stops players from placing too many siege bombs close together.")]
     public class LimitedSiegeBombDeploy : RustPlugin
     {
         #region Fields
